@@ -1,0 +1,91 @@
+/* Movie detail page */
+
+.movie-detail {
+    display: grid;
+    grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+    overflow: hidden;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+}
+
+.detail-poster img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+}
+
+.detail-content {
+    padding: 32px;
+    overflow-wrap: anywhere;
+}
+
+.detail-content h1 {
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+.detail-year {
+    margin: 12px 0 28px;
+    color: #6b7280;
+}
+
+.detail-content h2 {
+    margin: 0 0 12px;
+    font-size: 20px;
+}
+
+.detail-description {
+    color: #374151;
+    line-height: 1.7;
+}
+
+.detail-description p {
+    margin: 0 0 16px;
+}
+
+.detail-added {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+/* Clickable movie titles on the index page */
+
+.movie-title-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.movie-title-link:hover {
+    color: #2563eb;
+    text-decoration: underline;
+}
+
+.movie-title-link:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+    .movie-detail {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-poster {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    .detail-content {
+        padding: 24px;
+    }
+
+    .detail-content h1 {
+        font-size: 26px;
+    }
+}

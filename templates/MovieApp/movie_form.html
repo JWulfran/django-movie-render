@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/movie_form_style.css' %}">
+{% endblock %}
+
+{% block content %}
+    <main class="form-container">
+        <a href="{% url 'movies:index' %}" class="back-link">
+            ← Back to movies
+        </a>
+
+        <section class="form-card" aria-labelledby="form-title">
+            <h1 id="form-title">Add a movie</h1>
+
+            <p class="form-intro">
+                Add a movie to your collection.
+                The description and poster are optional.
+            </p>
+
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {% if form.non_field_errors %}
+                    <div class="form-errors" role="alert">
+                        {{ form.non_field_errors }}
+                    </div>
+                {% endif %}
+
+                {% for field in form %}
+                    <div class="form-field">
+                        {{ field.label_tag }}
+                        {{ field }}
+
+                        {% if field.help_text %}
+                            <small class="help-text">
+                                {{ field.help_text }}
+                            </small>
+                        {% endif %}
+
+                        {{ field.errors }}
+                    </div>
+                {% endfor %}
+
+                <div class="form-actions">
+                    <button type="submit" class="button">
+                        Save movie
+                    </button>
+
+                    <a
+                        href="{% url 'movies:index' %}"
+                        class="button button-secondary"
+                    >
+                        Cancel
+                    </a>
+                </div>
+            </form>
+        </section>
+    </main>
+
+{% endblock %}

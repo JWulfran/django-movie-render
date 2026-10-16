@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block extra_css %}
+            <link rel="stylesheet" href="{% static 'css/movie_detail_style.css' %}">
+    {% endblock %}
+
+{% block content %}
+    <main>
+        <a href="{% url 'movies:index' %}" class="back-link">
+            ← Back to movies
+        </a>
+
+        <article class="movie-detail">
+            <div class="detail-poster">
+                {% if movie.poster %}
+                    <img
+                        src="{{ movie.poster.url }}"
+                        alt="Poster for {{ movie.title }}"
+                    >
+                {% else %}
+                    <div class="poster-placeholder">
+                        No poster available
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="detail-content">
+                <h1>{{ movie.title }}</h1>
+
+                <p class="detail-year">
+                    Released in {{ movie.release_year }}
+                </p>
+
+                <h2>Description</h2>
+
+                <div class="detail-description">
+                    {% if movie.description %}
+                        {{ movie.description|linebreaks }}
+                    {% else %}
+                        <p>No description available.</p>
+                    {% endif %}
+                </div>
+
+                <p class="detail-added">
+                    Added on {{ movie.created_at|date:"F j, Y" }}
+                </p>
+            </div>
+        </article>
+    </main>    
+{% endblock %}

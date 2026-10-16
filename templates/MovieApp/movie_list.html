@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+
+{% block content %}
+
+     <main>
+        <header class="page-header">
+            <h1>Movie collection</h1>
+            <a href="{% url 'movies:add' %}" class="button">
+                + Add a movie
+            </a>
+        </header>
+
+        <section class="movie-grid" aria-label="Movies">
+            {% for movie in movies %}
+                <article class="movie-card">
+                    {% if movie.poster %}
+                        <img
+                            class="movie-poster"
+                            src="{{ movie.poster.url }}"
+                            alt="Poster for {{ movie.title }}"
+                            loading="lazy"
+                        >
+                    {% else %}
+                        <div class="poster-placeholder">
+                            No poster available
+                        </div>
+                    {% endif %}
+
+                    <div class="movie-details">
+                        <h2>
+                            <a
+                                href="{% url 'movies:detail' movie.pk %}"
+                                class="movie-title-link"
+                            >
+                                {{ movie.title }}
+                            </a>
+                        </h2>
+                        <p class="movie-year">{{ movie.release_year }}</p>
+
+                        <p class="movie-description">
+                            {{ movie.description|default:"No description available." }}
+                        </p>
+                    </div>
+                </article>
+            {% empty %}
+                <div class="empty-state">
+                    <h2>No movies yet</h2>
+                    <p>Add your first movie to start your collection.</p>
+                </div>
+            {% endfor %}
+        </section>
+    </main>
+
+
+{% endblock %}

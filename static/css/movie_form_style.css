@@ -1,0 +1,148 @@
+/* Movie form */
+
+.form-container {
+    max-width: 640px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 24px;
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.form-card {
+    padding: 28px;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+}
+
+.form-card h1 {
+    margin-bottom: 8px;
+}
+
+.form-intro {
+    margin: 0 0 28px;
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+.form-field {
+    margin-bottom: 22px;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: white;
+    color: #111827;
+    font: inherit;
+}
+
+.form-field textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+    border-color: #2563eb;
+}
+
+.form-field input[type="file"] {
+    padding: 10px;
+    color: #6b7280;
+}
+
+.form-field input[type="file"]::file-selector-button {
+    margin-right: 12px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    background: #eff6ff;
+    color: #1d4ed8;
+    font: inherit;
+    cursor: pointer;
+}
+
+.form-field input[type="file"]::file-selector-button:hover {
+    background: #dbeafe;
+}
+
+.help-text {
+    display: block;
+    margin-top: 8px;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.errorlist {
+    margin: 8px 0 0;
+    padding-left: 20px;
+    color: #b91c1c;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.form-errors {
+    margin-bottom: 22px;
+    padding: 12px;
+    border-radius: 8px;
+    background: #fef2f2;
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.form-actions .button {
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    text-align: center;
+}
+
+.button-secondary {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+.button-secondary:hover {
+    background: #d1d5db;
+}
+
+.button:focus-visible,
+.back-link:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+    .form-card {
+        padding: 20px;
+    }
+
+    .form-actions .button {
+        width: 100%;
+    }
+}
